@@ -1,0 +1,28 @@
+.border-article{
+  border-color: #198754;
+}
+.text-article{
+  color:#75B798;
+}
+.border-category{
+  border-color:  #6f42c1;
+}
+.text-category{
+  color: #A98EDA;
+}
+.border-comment{
+  border-color: #fd7e14;
+}
+.text-comment{
+  color:#FEB272;
+}
+.border-bug{
+  border-color: #dc3545;
+}
+.text-bug{
+  color:#dc3545;
+}
+.touch{
+  cursor: pointer;
+}
+

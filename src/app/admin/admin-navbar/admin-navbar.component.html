@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark mb-5" style="background-color: #212529">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/admin">
+      BLOG
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a mat-button routerLink="/admin"><small>Dashboard</small></a>
+        </li>
+        <li class=" nav-item">
+          <a mat-button routerLink="/articles"><small>Articles</small></a>
+        </li>
+        <li class="nav-item">
+          <a mat-button routerLink="/categories"><small>Categories</small></a>
+        </li>
+        <li class="nav-item">
+          <a mat-button routerLink="/comments"><small>Comments</small></a>
+        </li>
+        <li class="nav-item">
+          <a mat-button routerLink="/subscribers"><small>Subscribers</small></a>
+        </li>
+        <li class="nav-item">
+          <a mat-button routerLink="/blog"><small>Go to Blog</small>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+              class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+            </svg>
+          </a>
+        </li>
+      </ul>
+      <div class="d-flex">
+        <a mat-button routerLink="/logOut"><small>Log Out</small></a>
+      </div>
+    </div>
+  </div>
+</nav>
