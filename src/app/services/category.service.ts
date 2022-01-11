@@ -34,7 +34,7 @@ export class CategoryService {
     return this.httpClient.put<ResponseModel>(`${this.apiUrl}/categories/update`, category);
   }
   hardDeleteCategory(categoryId: number): Observable<ResponseModel> {
-    return this.httpClient.delete<ResponseModel>(`${this.apiUrl}/categories/hardDelete` + categoryId);
+    return this.httpClient.delete<ResponseModel>(`${this.apiUrl}/categories/hardDelete?categoryId=` + categoryId);
   }
   softDeleteCategory(categoryId: number): Observable<ResponseModel> {
     return this.httpClient.delete<ResponseModel>(`${this.apiUrl}/categories/softDelete?categoryId=` + categoryId);

@@ -18,12 +18,9 @@ import { AdminDeleteCategoryModalComponent } from '../admin-delete-category-moda
 })
 
 export class AdminCategoryListComponent implements OnInit {
-
-
   page = 1;
   count = 0;
-  tableSize = 7;
-  tableSizes = [3, 6, 9, 12];
+  tableSize = 20;
   constructor(
     private toastrService: ToastrService,
     public categoryService: CategoryService,
@@ -37,13 +34,6 @@ export class AdminCategoryListComponent implements OnInit {
     this.page = event;
     this.categoryService.getAllCategories();
   }
-  onTableSizeChange(event: any): void {
-    this.tableSize = event.target.value;
-    this.page = 1;
-    this.categoryService.getAllCategories();
-  }
-
-
 
   openAddCategoryModal(): void {
     const dialog = this.dialog.open(AdminCategoryModalComponent, {
