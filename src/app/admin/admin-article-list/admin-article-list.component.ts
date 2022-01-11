@@ -9,19 +9,22 @@ import { ArticleService } from 'src/app/services/article.service';
   styleUrls: ['./admin-article-list.component.css']
 })
 export class AdminArticleListComponent implements OnInit {
-  articles: ArticleDto[] = [];
+  page = 1;
+  count = 0;
+  tableSize = 20;
 
-  constructor(private articleService: ArticleService) { }
+  constructor(public articleService: ArticleService) { }
   ngOnInit(): void {
-
-    this.getArticles();
+    this.articleService.getArticles();
   }
+  onTableDataChange(event: any) {
+    this.page = event;
+    this.articleService.getArticles();
+  }
+  openUpdatearticleModal(article: ArticleDto) {
 
-  getArticles() {
-    this.articleService.getArticles().subscribe(response => {
-      this.articles = response.data;
-    })
-  };
+  }
+  softDeletearticle(article: ArticleDto) {
 
-
+  }
 }

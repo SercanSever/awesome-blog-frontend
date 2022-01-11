@@ -18,14 +18,14 @@
 </div>
 
 
-
-<div class="row d-flex justify-content-center p-2">
+<div class="row d-flex justify-content-center">
   <mat-card class="example-card col-2 col-md-2 m-2 m-md-2" *ngFor="let category of categoryService.filteredCategories | paginate : {
     itemsPerPage: tableSize,
     currentPage: page,
     totalItems: count
   };">
-    <mat-card-title>{{category.name}}</mat-card-title>
+    <mat-card-title *ngIf="category.name.length > 12">{{category.name.substring(0,12)}}...</mat-card-title>
+    <mat-card-title *ngIf="!(category.name.length > 12)">{{category.name}}</mat-card-title>
     <mat-card-subtitle>Upload date: {{category.uploadDate | date : 'dd/MM/yyyy'}}</mat-card-subtitle>
     <hr>
     <mat-card-content>

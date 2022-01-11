@@ -7,20 +7,23 @@ import { ResponseModel } from '../models/response-models/responseModel';
 import ArticleDto from '../models/article';
 
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class ArticleService {
+  articles: ArticleDto[];
+  filteredArticles: ArticleDto[];
 
   constructor(
     @Inject('apiUrl') private apiUrl: string,
     private httpClient: HttpClient
   ) { }
 
-  getArticles(): Observable<ListResponseModel<ArticleDto>> {
-
-    return this.httpClient.get<ListResponseModel<ArticleDto>>(`${this.apiUrl}/articles/getAll`);
+  getArticles() {
+    return this.httpClient.get<ListResponseModel<ArticleDto>>(`${this.apiUrl}/categories/getAll`)
+      .subscribe(response => {
+        this.articles = this.filteredArticles = response.data;
+      });
   }
   getArticlesByCategory(categoryId: number): Observable<ListResponseModel<ArticleDto>> {
     return this.httpClient.get<ListResponseModel<ArticleDto>>(`${this.apiUrl}/articles/getbycategory?categoryId=${categoryId}`);

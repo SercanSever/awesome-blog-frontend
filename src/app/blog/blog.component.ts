@@ -22,17 +22,10 @@ export class BlogComponent implements OnInit {
       if (params["categoryId"]) {
         this.getByCategory(params["categoryId"])
       } else {
-        this.getAllArticles()
+        this.articleService.getArticles()
       }
     })
   }
-  getAllArticles() {
-    this.articleService.getArticles().subscribe((response) => {
-      this.articles = response.data;
-      this.dataLoaded = true;
-    });
-  }
-
   getByCategory(categoryId: number) {
     this.articleService.getArticlesByCategory(categoryId).subscribe(response => {
       this.articles = response.data

@@ -24,9 +24,9 @@ export class CategoryService {
         this.categories = this.filteredCategories = response.data;
       });
   }
-  getAllCategoriesNoSub() {
-    return this.httpClient.get<ListResponseModel<CategoryDto>>(`${this.apiUrl}/categories/getAll`)
-  }
+  // getAllCategoriesNoSub() {
+  //   return this.httpClient.get<ListResponseModel<CategoryDto>>(`${this.apiUrl}/categories/getAll`)
+  // }
   addCategory(category: CategoryDto): Observable<ResponseModel> {
     return this.httpClient.post<ResponseModel>(`${this.apiUrl}/categories/add`, category);
   }

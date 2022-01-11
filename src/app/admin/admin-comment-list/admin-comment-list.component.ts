@@ -42,11 +42,11 @@ const NAMES: string[] = [
   'Elizabeth',
 ];
 @Component({
-  selector: 'app-admin-comments-list',
-  templateUrl: './admin-comments-list.component.html',
-  styleUrls: ['./admin-comments-list.component.css'],
+  selector: 'app-admin-comment-list',
+  templateUrl: './admin-comment-list.component.html',
+  styleUrls: ['./admin-comment-list.component.css'],
 })
-export class AdminCommentsListComponent implements AfterViewInit {
+export class AdminCommentListComponent implements AfterViewInit {
   displayedColumns: string[] = ['id', 'name', 'progress', 'fruit'];
   dataSource: MatTableDataSource<UserData>;
 
