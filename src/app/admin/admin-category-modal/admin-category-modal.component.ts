@@ -24,21 +24,23 @@ export class AdminCategoryModalComponent implements OnInit {
   ngOnInit(): void {
     this.categoryAddForm = this.formBuilder.group({
       name: [this.data?.name || '', [Validators.required, Validators.maxLength(20)]],
-      uploadDate: [this.data?.uploadDate],
+      uploadDate: [this.data ? this.data.uploadDate : this.dateTime],
       updateDate: [this.data ? this.dateTime : '']
     })
   }
 
   addCategory(): void {
     this.categoryService.addCategory(this.categoryAddForm.value).subscribe(response => {
-      this.dialogRef.close(true);
+      this.categoryService.getAllCategories();
+      this.dialogRef.close();
       this.toastrService.success(response.message || 'Added Successfully');
     })
   }
 
   updateCategory(): void {
     this.categoryService.updateCategory(this.categoryAddForm.value).subscribe(response => {
-      this.dialogRef.close(true);
+      this.categoryService.getAllCategories();
+      this.dialogRef.close();
       this.toastrService.success(response.message || 'Updated Successfully');
     })
   }

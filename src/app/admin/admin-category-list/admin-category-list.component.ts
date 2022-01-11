@@ -1,10 +1,14 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Subject } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
+import { MatPaginator } from '@angular/material/paginator';
 
 import { CategoryDto } from 'src/app/models/category';
 import { CategoryService } from 'src/app/services/category.service';
 import { AdminCategoryModalComponent } from '../admin-category-modal/admin-category-modal.component';
+import { AdminDeleteCategoryModalComponent } from '../admin-delete-category-modal/admin-delete-category-modal.component';
+
+
 
 
 @Component({
@@ -13,42 +17,37 @@ import { AdminCategoryModalComponent } from '../admin-category-modal/admin-categ
   styleUrls: ['./admin-category-list.component.css']
 })
 
-export class AdminCategoryListComponent implements OnDestroy, OnInit {
-  dtOptions: DataTables.Settings = {};
-  categories: CategoryDto[] = [];
-  category: CategoryDto[];
-  dtTrigger: Subject<any> = new Subject<any>();
+export class AdminCategoryListComponent implements OnInit {
 
+
+  page = 1;
+  count = 0;
+  tableSize = 7;
+  tableSizes = [3, 6, 9, 12];
   constructor(
-    private categoryService: CategoryService,
+    private toastrService: ToastrService,
+    public categoryService: CategoryService,
     public dialog: MatDialog) { }
+
   ngOnInit(): void {
-    this.getCategories();
-    this.dtOptions = {
-      pagingType: 'full_numbers',
-      pageLength: 10
-    };
+    this.categoryService.getAllCategories();
   }
 
-  getCategories() {
-    this.categoryService.getAllCategories().subscribe(response => {
-      this.categories = response.data;
-      this.dtTrigger.subscribe();
-    })
-  };
-
-  ngOnDestroy(): void {
-    this.dtTrigger.unsubscribe();
+  onTableDataChange(event: any) {
+    this.page = event;
+    this.categoryService.getAllCategories();
   }
+  onTableSizeChange(event: any): void {
+    this.tableSize = event.target.value;
+    this.page = 1;
+    this.categoryService.getAllCategories();
+  }
+
+
 
   openAddCategoryModal(): void {
     const dialog = this.dialog.open(AdminCategoryModalComponent, {
       width: '500px',
-    });
-    dialog.afterClosed().subscribe(response => {
-      if (response) {
-        this.getCategories();
-      }
     });
   }
   openUpdateCategoryModal(category: CategoryDto) {
@@ -56,11 +55,17 @@ export class AdminCategoryListComponent implements OnDestroy, OnInit {
       width: '500px',
       data: category
     });
-    dialog.afterClosed().subscribe(response => {
-      if (response) {
-        this.getCategories();
-      }
+  }
+  openHardDeleteCategoryModal(category: CategoryDto) {
+    const dialog = this.dialog.open(AdminDeleteCategoryModalComponent, {
+      width: '500px',
+      data: category
     });
   }
-
+  softDeleteCategory(category: CategoryDto) {
+    this.categoryService.softDeleteCategory(category.categoryId).subscribe(response => {
+      this.toastrService.success(response.message || 'Status change succesfully')
+      this.categoryService.getAllCategories();
+    });
+  }
 }

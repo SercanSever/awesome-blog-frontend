@@ -4,7 +4,6 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminFormComponent } from './admin-form/admin-form.component';
-import { ToastrModule } from 'ngx-toastr';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
@@ -23,46 +22,55 @@ import { AdminCategoryComponent } from './admin-category/admin-category.componen
 import { AdminCategoryListComponent } from './admin-category-list/admin-category-list.component';
 import { AdminCommentsComponent } from './admin-comments/admin-comments.component';
 import { AdminCommentsListComponent } from './admin-comments-list/admin-comments-list.component';
-import { DataTablesModule } from 'angular-datatables';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AdminCategoryModalComponent } from './admin-category-modal/admin-category-modal.component';
-
-
-
-
+import { MatCardModule } from '@angular/material/card';
+import { AdminCategorySearchComponent } from './admin-category-list/admin-category-search/admin-category-search.component';
+import { AdminCategorySelectOptionsComponent } from './admin-category-list/admin-category-select-options/admin-category-select-options.component';
+import { MatSelectModule } from '@angular/material/select';
+import { AdminDeleteCategoryModalComponent } from './admin-delete-category-modal/admin-delete-category-modal.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
-    AdminComponent,
-    AdminFormComponent,
-    AdminNavbarComponent,
     GoogleLineChartComponent,
     GooglePieChartComponent,
     GoogleComboChartComponent,
+
     LastAddedArticlesComponent,
+    AdminComponent,
+    AdminFormComponent,
+    AdminNavbarComponent,
     AdminArticlesComponent,
     AdminArticleListComponent,
     AdminCategoryComponent,
     AdminCategoryListComponent,
     AdminCommentsComponent,
     AdminCommentsListComponent,
-    AdminCategoryModalComponent
+    AdminCategoryModalComponent,
+    AdminCategorySearchComponent,
+    AdminCategorySelectOptionsComponent,
+    AdminDeleteCategoryModalComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    GoogleChartsModule,
+
+    NgxPaginationModule,
+
     MatMenuModule,
     MatButtonModule,
     MatTableModule,
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule,
-    DataTablesModule,
     MatIconModule,
     MatDialogModule,
-    GoogleChartsModule
+    MatCardModule,
+    MatSelectModule
   ]
 })
 export class AdminModule { }

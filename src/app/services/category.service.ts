@@ -11,18 +11,32 @@ import { ResponseModel } from '../models/response-models/responseModel';
   providedIn: 'root',
 })
 export class CategoryService {
-
+  categories: CategoryDto[];
+  filteredCategories: CategoryDto[];
   constructor(
     @Inject('apiUrl') private apiUrl: string,
-    private httpClient: HttpClient) { }
+    private httpClient: HttpClient
+  ) { }
 
-  getAllCategories(): Observable<ListResponseModel<CategoryDto>> {
-    return this.httpClient.get<ListResponseModel<CategoryDto>>(`${this.apiUrl}/categories/getAll`);
+  getAllCategories() {
+    return this.httpClient.get<ListResponseModel<CategoryDto>>(`${this.apiUrl}/categories/getAll`)
+      .subscribe(response => {
+        this.categories = this.filteredCategories = response.data;
+      });
+  }
+  getAllCategoriesNoSub() {
+    return this.httpClient.get<ListResponseModel<CategoryDto>>(`${this.apiUrl}/categories/getAll`)
   }
   addCategory(category: CategoryDto): Observable<ResponseModel> {
     return this.httpClient.post<ResponseModel>(`${this.apiUrl}/categories/add`, category);
   }
   updateCategory(category: CategoryDto): Observable<ResponseModel> {
     return this.httpClient.put<ResponseModel>(`${this.apiUrl}/categories/update`, category);
+  }
+  hardDeleteCategory(categoryId: number): Observable<ResponseModel> {
+    return this.httpClient.delete<ResponseModel>(`${this.apiUrl}/categories/hardDelete` + categoryId);
+  }
+  softDeleteCategory(categoryId: number): Observable<ResponseModel> {
+    return this.httpClient.delete<ResponseModel>(`${this.apiUrl}/categories/softDelete?categoryId=` + categoryId);
   }
 }

@@ -13,14 +13,7 @@ export class BlogCategoriesComponent implements OnInit {
   constructor(private categoryService: CategoryService) { }
 
   ngOnInit(): void {
-    this.getAllCategories();
-  }
-
-
-  getAllCategories() {
-    this.categoryService.getAllCategories().subscribe(response => {
-      this.categories = response.data;
-    });
+    this.categoryService.getAllCategories();
   }
 
   setCurrentCategory(category: CategoryDto) {
