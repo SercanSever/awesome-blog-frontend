@@ -11,7 +11,6 @@ import { ArticleService } from 'src/app/services/article.service';
 })
 export class AdminDeleteArticleModalComponent {
   showSpinner: boolean = false;
-
   constructor(
     private toastrService: ToastrService,
     private dialogRef: MatDialogRef<AdminDeleteArticleModalComponent>,
@@ -25,7 +24,6 @@ export class AdminDeleteArticleModalComponent {
       this.getSuccess(response.message || 'Successfully deleted.');
     })
   }
-
   getSuccess(message: string): void {
     this.articleService.getArticles();
     this.dialogRef.close();
