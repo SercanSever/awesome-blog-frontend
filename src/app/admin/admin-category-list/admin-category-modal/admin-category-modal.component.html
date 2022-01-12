@@ -1,5 +1,9 @@
 <h2 mat-dialog-title>{{data ? 'Update Category' : 'New Category' }}</h2>
 <mat-dialog-content class="mat-typography">
+  <div *ngIf="showSpinner">
+    <mat-progress-bar mode="indeterminate" class="p-1"></mat-progress-bar>
+    <br>
+  </div>
   <form [formGroup]="categoryAddForm" class="example-form">
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Category Name</mat-label>
@@ -7,7 +11,8 @@
     </mat-form-field>
   </form>
 </mat-dialog-content>
-<mat-dialog-actions align="end">
+<mat-dialog-actions>
   <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button (click)="data ? updateCategory() : addCategory()">{{data ? "Update" : "Add"}}</button>
+  <button mat-button *ngIf="!showSpinner" (click)="data ? updateCategory() : addCategory()"
+    [disabled]="categoryAddForm.invalid || showSpinner">{{data ? "Update" : "Add"}}</button>
 </mat-dialog-actions>

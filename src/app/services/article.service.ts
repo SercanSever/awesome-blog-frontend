@@ -20,7 +20,7 @@ export class ArticleService {
   ) { }
 
   getArticles() {
-    return this.httpClient.get<ListResponseModel<ArticleDto>>(`${this.apiUrl}/categories/getAll`)
+    return this.httpClient.get<ListResponseModel<ArticleDto>>(`${this.apiUrl}/articles/getAll`)
       .subscribe(response => {
         this.articles = this.filteredArticles = response.data;
       });
@@ -30,5 +30,11 @@ export class ArticleService {
   }
   add(article: ArticleDto): Observable<ResponseModel> {
     return this.httpClient.post<ResponseModel>(`${this.apiUrl}/articles/add`, article);
+  }
+  softDeleteArticle(articleId: number): Observable<ResponseModel> {
+    return this.httpClient.delete<ResponseModel>(`${this.apiUrl}/articles/softDelete?articleId=` + articleId);
+  }
+  hardDeleteArticle(articleId: number): Observable<ResponseModel> {
+    return this.httpClient.delete<ResponseModel>(`${this.apiUrl}/articles/hardDelete?articleId=` + articleId);
   }
 }

@@ -8,7 +8,7 @@
   </button>
 </div>
 
-<div class="d-flex justify-content-evenly m-4 m-md-4">
+<div *ngIf="categoryService.categories" class="d-flex justify-content-evenly m-4 m-md-4">
   <div class="p-2">
     <app-admin-category-search></app-admin-category-search>
   </div>
@@ -19,6 +19,17 @@
 
 
 <div class="row d-flex justify-content-center">
+  <div *ngIf="!categoryService.categories">
+    <mat-progress-bar mode="indeterminate" class="p-1"></mat-progress-bar>
+    <br>
+    <h2 class="d-flex justify-content-center">Loading Categories</h2>
+  </div>
+  <div *ngIf="categoryService.categories.length === 0">
+    <mat-progress-bar mode="indeterminate" class="p-1"></mat-progress-bar>
+    <br>
+    <h2 class="d-flex justify-content-center">You don't have any categories yet.</h2>
+  </div>
+
   <mat-card class="example-card col-2 col-md-2 m-2 m-md-2" *ngFor="let category of categoryService.filteredCategories | paginate : {
     itemsPerPage: tableSize,
     currentPage: page,
@@ -90,7 +101,7 @@
       </button>
     </mat-card-actions>
   </mat-card>
-  <div class="d-flex justify-content-center">
+  <div *ngIf="categoryService.categories" class="d-flex justify-content-center">
     <div class="d-flex justify-content-center">
       <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
       </pagination-controls>

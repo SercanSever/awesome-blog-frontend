@@ -1,4 +1,4 @@
-export interface CategoryDto {
+export default interface CategoryDto {
   categoryId: number;
   name: string;
   uploadDate?: Date;

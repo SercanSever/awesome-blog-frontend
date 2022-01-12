@@ -31,6 +31,17 @@ import { AdminCategoryPageComponent } from './admin-category-page/admin-category
 import { AdminCommentPageComponent } from './admin-comment-page/admin-comment-page.component';
 import { AdminArticlePageComponent } from './admin-article-page/admin-article-page.component';
 import { AdminCommentListComponent } from './admin-comment-list/admin-comment-list.component';
+import { MatBadgeModule } from '@angular/material/badge';
+import { AdminArticleSearchComponent } from './admin-article-list/admin-article-search/admin-article-search.component';
+import { AdminArticleSelectOptionComponent } from './admin-article-list/admin-article-select-option/admin-article-select-option.component';
+import { AdminArticleDateSelectComponent } from './admin-article-list/admin-article-date-select/admin-article-date-select.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatChipsModule } from '@angular/material/chips';
+import { AdminArticleFilterCategoryComponent } from './admin-article-list/admin-article-filter-category/admin-article-filter-category.component';
+import { AdminDeleteArticleModalComponent } from './admin-article-list/admin-delete-article-modal/admin-delete-article-modal.component';
+import { AdminArticleAddPageComponent } from './admin-article-add-page/admin-article-add-page.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 @NgModule({
   declarations: [
     GoogleLineChartComponent,
@@ -50,17 +61,21 @@ import { AdminCommentListComponent } from './admin-comment-list/admin-comment-li
     AdminCategoryPageComponent,
     AdminCommentPageComponent,
     AdminArticlePageComponent,
-    AdminCommentListComponent
+    AdminCommentListComponent,
+    AdminArticleSearchComponent,
+    AdminArticleSelectOptionComponent,
+    AdminArticleDateSelectComponent,
+    AdminArticleFilterCategoryComponent,
+    AdminDeleteArticleModalComponent,
+    AdminArticleAddPageComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-
     GoogleChartsModule,
     NgxPaginationModule,
-
     MatMenuModule,
     MatButtonModule,
     MatTableModule,
@@ -70,7 +85,12 @@ import { AdminCommentListComponent } from './admin-comment-list/admin-comment-li
     MatIconModule,
     MatDialogModule,
     MatCardModule,
-    MatSelectModule
+    MatSelectModule,
+    MatBadgeModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatChipsModule,
+    MatProgressBarModule
   ]
 })
 export class AdminModule { }

@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
-import { CategoryDto } from 'src/app/models/category';
+import CategoryDto from 'src/app/models/category';
 import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
@@ -13,6 +13,7 @@ import { CategoryService } from 'src/app/services/category.service';
 export class AdminCategoryModalComponent implements OnInit {
   dateTime = new Date();
   categoryAddForm: FormGroup;
+  showSpinner: boolean = false;
   constructor(
     private toastrService: ToastrService,
     private dialogRef: MatDialogRef<AdminCategoryModalComponent>,
@@ -30,20 +31,24 @@ export class AdminCategoryModalComponent implements OnInit {
   }
 
   addCategory(): void {
+    this.showSpinner = true;
     this.categoryService.addCategory(this.categoryAddForm.value).subscribe(response => {
-      this.categoryService.getAllCategories();
-      this.dialogRef.close();
-      this.toastrService.success(response.message || 'Added Successfully');
-    })
+      this.getSuccess(response.message || 'Added Successfully');
+    });
   }
 
   updateCategory(): void {
+    this.showSpinner = true;
     this.categoryService.updateCategory(this.categoryAddForm.value).subscribe(response => {
-      this.categoryService.getAllCategories();
-      this.dialogRef.close();
-      this.toastrService.success(response.message || 'Updated Successfully');
+      this.getSuccess(response.message || 'Updated Successfully');
     })
   }
 
+  getSuccess(message: string): void {
+    this.categoryService.getAllCategories();
+    this.dialogRef.close();
+    this.showSpinner = false;
+    this.toastrService.success(message);
+  }
 
 }
