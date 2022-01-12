@@ -1,5 +1,5 @@
 <mat-form-field class="example-form-field" appearance="fill">
-  <mat-label>Search category</mat-label>
+  <mat-label>Search article</mat-label>
   <input matInput type="text" [(ngModel)]="filterText" (keyup)="search(filterText)">
   <button *ngIf="filterText" matSuffix mat-icon-button aria-label="Clear" (click)="filterText=''">
     <mat-icon>close</mat-icon>

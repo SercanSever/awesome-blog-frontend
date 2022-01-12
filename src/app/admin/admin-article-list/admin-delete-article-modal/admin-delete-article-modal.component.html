@@ -1,0 +1,9 @@
+<h2 mat-dialog-title>Are You Sure ?</h2>
+<mat-dialog-content class="mat-typography">
+  <h3>You are about to delete the category named <strong>{{data.name}}</strong></h3>
+  <h3>"This action will completely delete the data"</h3>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button (click)="deleteArticle()">Delete</button>
+</mat-dialog-actions>

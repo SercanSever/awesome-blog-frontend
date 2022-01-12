@@ -1,5 +1,5 @@
-<div routerLink="/article/add" class="d-flex justify-content-center">
-  <button mat-fab style="background-color: #479F76;">
+<div class="d-flex justify-content-center">
+  <button routerLink="/article/add" mat-fab style="background-color: #479F76;">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil"
       viewBox="0 0 16 16">
       <path
@@ -10,16 +10,22 @@
 
 <div class="d-flex justify-content-evenly m-4 m-md-4">
   <div class="p-2">
-    <!-- <app-admin-article-search></app-admin-article-search> -->
+    <app-admin-article-search></app-admin-article-search>
   </div>
   <div class="p-2">
-    <!-- <app-admin-article-select-options></app-admin-article-select-options> -->
+    <app-admin-article-date-select></app-admin-article-date-select>
+  </div>
+  <div class="p-2">
+    <app-admin-article-select-option></app-admin-article-select-option>
+  </div>
+  <div class="p-2">
+    <app-admin-article-filter-category></app-admin-article-filter-category>
   </div>
 </div>
 
 
 <div class="row d-flex justify-content-center">
-  <mat-card class="example-card col-2 col-md-2 m-2 m-md-2" *ngFor="let article of articleService.articles  | paginate : {
+  <mat-card class="example-card col-2 col-md-2 m-2 m-md-2" *ngFor="let article of articleService.filteredArticles| paginate : {
     itemsPerPage: tableSize,
     currentPage: page,
     totalItems: count
@@ -27,14 +33,22 @@
     <mat-card-title>{{article.name}}</mat-card-title>
     <mat-card-subtitle>Upload date: {{article.uploadDate | date : 'dd/MM/yyyy'}}</mat-card-subtitle>
     <hr>
-    <mat-card-content>
-      <mat-card-subtitle *ngIf="article.updateDate">Update date: {{article.updateDate | date : 'dd/MM/yyyy'}}
-      </mat-card-subtitle>
-      <mat-card-subtitle *ngIf="!article.updateDate">Update date: <strong>Never updated</strong>
-      </mat-card-subtitle>
-      <mat-card-subtitle>Article count: <strong>21</strong>
-      </mat-card-subtitle>
-    </mat-card-content>
+    <div class="row">
+      <mat-card-content>
+        <mat-card-subtitle *ngIf="article.updateDate">Update date: {{article.updateDate | date : 'dd/MM/yyyy'}}
+        </mat-card-subtitle>
+        <mat-card-subtitle *ngIf="!article.updateDate">Update date: <strong>Never updated</strong>
+        </mat-card-subtitle>
+        <mat-card-subtitle>
+
+
+        </mat-card-subtitle>
+      </mat-card-content>
+      <img src="https://picsum.photos/200/200" alt="">
+    </div>
+
+
+
     <mat-card-actions class="d-flex justify-content-center">
       <button mat-mini-fab style="background-color: #FD7E14;" class="m-1 m-md-1">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-ticket-detailed"
@@ -77,7 +91,8 @@
         </svg>
       </button>
 
-      <button mat-mini-fab style="background-color: red;" class="m-1 m-md-1">
+      <button (click)="openHardDeleteArticleModal(article)" mat-mini-fab style="background-color: red;"
+        class="m-1 m-md-1">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash"
           viewBox="0 0 16 16">
           <path

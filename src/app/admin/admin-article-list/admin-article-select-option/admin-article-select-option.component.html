@@ -1,0 +1,8 @@
+<mat-form-field class="example-form-field" appearance="fill">
+  <mat-label>Filter articles</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let filter of filters" (click)="filterArticle(filter.viewValue)" [value]="filter.value">
+      {{filter.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

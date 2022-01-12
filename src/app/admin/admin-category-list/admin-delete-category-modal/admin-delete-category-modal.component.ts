@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
-import { CategoryDto } from 'src/app/models/category';
+import CategoryDto from 'src/app/models/category';
 import { CategoryService } from 'src/app/services/category.service';
 
 @Component({

@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
+import CategoryDto from 'src/app/models/category';
 
-import { CategoryDto } from 'src/app/models/category';
 import { CategoryService } from 'src/app/services/category.service';
 import { AdminCategoryModalComponent } from './admin-category-modal/admin-category-modal.component';
 import { AdminDeleteCategoryModalComponent } from './admin-delete-category-modal/admin-delete-category-modal.component';
-
-
 
 
 @Component({
