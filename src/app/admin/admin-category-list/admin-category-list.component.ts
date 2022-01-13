@@ -42,6 +42,7 @@ export class AdminCategoryListComponent implements OnInit {
       width: '500px',
       data: category
     });
+
   }
   openHardDeleteCategoryModal(category: CategoryDto) {
     const dialog = this.dialog.open(AdminDeleteCategoryModalComponent, {

@@ -4,6 +4,6 @@ export interface ArticleCategory extends ListResponseModel<ArticleCategory> {
   articleCategoryId: number;
   articleId: number;
   categoryId: number;
-  isDeleted: boolean,
+  isDeleted?: boolean,
   deletionTime?: Date
 }

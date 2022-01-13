@@ -40,8 +40,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatChipsModule } from '@angular/material/chips';
 import { AdminArticleFilterCategoryComponent } from './admin-article-list/admin-article-filter-category/admin-article-filter-category.component';
 import { AdminDeleteArticleModalComponent } from './admin-article-list/admin-delete-article-modal/admin-delete-article-modal.component';
-import { AdminArticleAddPageComponent } from './admin-article-add-page/admin-article-add-page.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { AdminArticleFormComponent } from './admin-article-page/admin-article-form/admin-article-form.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 @NgModule({
   declarations: [
     GoogleLineChartComponent,
@@ -67,7 +68,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     AdminArticleDateSelectComponent,
     AdminArticleFilterCategoryComponent,
     AdminDeleteArticleModalComponent,
-    AdminArticleAddPageComponent
+    AdminArticleFormComponent
   ],
   imports: [
     CommonModule,
@@ -90,7 +91,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatDatepickerModule,
     MatNativeDateModule,
     MatChipsModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    CKEditorModule
   ]
 })
 export class AdminModule { }
