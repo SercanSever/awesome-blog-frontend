@@ -54,7 +54,6 @@ export class AdminArticleFormComponent implements OnInit {
   public ckEditorConfig = {
     simpleUpload: {
       uploadUrl: `${this.apiUrl}/Images/UploadImage`
-
       // // Enable the XMLHttpRequest.withCredentials property.
       // withCredentials: true,
       // // Headers sent along with the XMLHttpRequest to the upload server.
