@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import ArticleDto from 'src/app/models/article';
@@ -12,11 +12,11 @@ import * as Editor from '../../../ckCustomBuild/build/ckeditor';
 })
 export class AdminArticleFormComponent implements OnInit {
   public Editor = Editor;
-
   articleForm: FormGroup
   dateTime = new Date()
 
   constructor(
+    @Inject('apiUrl') private apiUrl: string,
     private formBuilder: FormBuilder,
     private articleService: ArticleService,
     private toastrService: ToastrService) { }
@@ -51,10 +51,9 @@ export class AdminArticleFormComponent implements OnInit {
   }
 
 
-
   public ckEditorConfig = {
     simpleUpload: {
-      uploadUrl: 'http://example.com',
+      uploadUrl: `${this.apiUrl}/Images/UploadImage`
 
       // // Enable the XMLHttpRequest.withCredentials property.
       // withCredentials: true,
