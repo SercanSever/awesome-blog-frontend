@@ -24,7 +24,7 @@
     <br>
     <h2 class="d-flex justify-content-center">Loading Categories</h2>
   </div>
-  <div *ngIf="categoryService.categories.length === 0">
+  <div *ngIf="categoryService.categories?.length === 0">
     <mat-progress-bar mode="indeterminate" class="p-1"></mat-progress-bar>
     <br>
     <h2 class="d-flex justify-content-center">You don't have any categories yet.</h2>
@@ -35,8 +35,8 @@
     currentPage: page,
     totalItems: count
   };">
-    <mat-card-title *ngIf="category.name.length > 12">{{category.name.substring(0,12)}}...</mat-card-title>
-    <mat-card-title *ngIf="!(category.name.length > 12)">{{category.name}}</mat-card-title>
+    <mat-card-title *ngIf="category.name?.length > 12">{{category.name.substring(0,12)}}...</mat-card-title>
+    <mat-card-title *ngIf="!(category.name?.length > 12)">{{category.name}}</mat-card-title>
     <mat-card-subtitle>Upload date: {{category.uploadDate | date : 'dd/MM/yyyy'}}</mat-card-subtitle>
     <hr>
     <mat-card-content>

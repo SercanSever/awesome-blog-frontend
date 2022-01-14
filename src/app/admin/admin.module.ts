@@ -43,6 +43,8 @@ import { AdminDeleteArticleModalComponent } from './admin-article-list/admin-del
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { AdminArticleFormComponent } from './admin-article-page/admin-article-form/admin-article-form.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 @NgModule({
   declarations: [
     GoogleLineChartComponent,
@@ -92,7 +94,9 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     MatNativeDateModule,
     MatChipsModule,
     MatProgressBarModule,
-    CKEditorModule
+    CKEditorModule,
+    MatStepperModule,
+    MatAutocompleteModule
   ]
 })
 export class AdminModule { }

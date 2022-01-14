@@ -5,6 +5,7 @@ import { ListResponseModel } from '../models/response-models/listResponseModel';
 
 import { ResponseModel } from '../models/response-models/responseModel';
 import ArticleDto from '../models/article';
+import { SingleResponseModel } from '../models/response-models/singleResponseModel';
 
 
 @Injectable({
@@ -28,8 +29,8 @@ export class ArticleService {
   getArticlesByCategory(categoryId: number): Observable<ListResponseModel<ArticleDto>> {
     return this.httpClient.get<ListResponseModel<ArticleDto>>(`${this.apiUrl}/articles/getbycategory?categoryId=${categoryId}`);
   }
-  add(article: ArticleDto): Observable<ResponseModel> {
-    return this.httpClient.post<ResponseModel>(`${this.apiUrl}/articles/add`, article);
+  add(article: ArticleDto): Observable<SingleResponseModel<ArticleDto>> {
+    return this.httpClient.post<SingleResponseModel<ArticleDto>>(`${this.apiUrl}/articles/add`, article);
   }
   softDeleteArticle(articleId: number): Observable<ResponseModel> {
     return this.httpClient.delete<ResponseModel>(`${this.apiUrl}/articles/softDelete?articleId=` + articleId);

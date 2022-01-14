@@ -22,6 +22,12 @@ export class CategoryService {
         this.categories = this.filteredCategories = response.data;
       });
   }
+  getAllCategoriesNoSub() {
+    return this.httpClient.get<ListResponseModel<CategoryDto>>(`${this.apiUrl}/categories/getAll`)
+  }
+  getAllCategoryNames(): Observable<ListResponseModel<string>> {
+    return this.httpClient.get<ListResponseModel<string>>(`${this.apiUrl}/categories/getAllNames`);
+  }
   getCategoriesByArticleId(articleId: number): Observable<ListResponseModel<CategoryDto>> {
     return this.httpClient.get<ListResponseModel<CategoryDto>>(`${this.apiUrl}/categories/getByArticleId?articleId=` + articleId);
   }

@@ -12,51 +12,117 @@
       </div>
       <div class="card-body">
 
-        <form class="example-form" [formGroup]="articleForm">
 
-          <div class="row">
-            <div class="col-6 col-md-6">
-              <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Article name</mat-label>
-                <input formControlName="name" matInput placeholder="Are cats really liquid ?" formControlName="name"
-                  value="">
+
+        <mat-stepper linear #stepper>
+          <mat-step [stepControl]="articleForm">
+            <form class="example-form" [formGroup]="articleForm" *ngIf="articleForm">
+              <div class="m-3 m-md-3">
+                <ng-template matStepLabel>Create article</ng-template>
+              </div>
+              <div class="row">
+                <div class="col-6 col-md-6">
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Article name</mat-label>
+                    <input formControlName="name" matInput placeholder="Are cats really liquid ?" formControlName="name"
+                      value="">
+                  </mat-form-field>
+                </div>
+                <div class="col-6 col-md-6">
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Author name</mat-label>
+                    <input formControlName="author" matInput placeholder="Sercan Sever" value="Sercan Sever">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-md-12">
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Summary</mat-label>
+                    <textarea formControlName="summary" matInput
+                      placeholder="In recent years, we see that cats take the shape of the container they are in..."></textarea>
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12 col-md-12">
+                  <ckeditor [config]="ckEditorConfig" [editor]="Editor" formControlName="content"></ckeditor>
+                </div>
+              </div>
+
+
+              <div class="d-flex justify-content-end mt-2 mt-md-2">
+                <button matStepperNext (click)="addArticle()" mat-fab style="background-color: #3F51B5;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                    class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z" />
+                    <path fill-rule="evenodd"
+                      d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z" />
+                  </svg>
+                </button>
+              </div>
+            </form>
+          </mat-step>
+
+
+          <mat-step [stepControl]="categoryForm">
+            <form [formGroup]="categoryForm" *ngIf="categoryForm">
+              <ng-template matStepLabel>Select categories</ng-template>
+              <mat-form-field class="example-chip-list" appearance="fill">
+                <mat-label>Categories</mat-label>
+                <mat-chip-list #chipList aria-label="Category selection">
+                  <mat-chip *ngFor="let category of categories" (removed)="remove(category)">
+                    {{category}}
+                    <button matChipRemove>
+                      <mat-icon>cancel</mat-icon>
+                    </button>
+                  </mat-chip>
+                  <input placeholder="New category..." #categoryInput [formControl]="categoryCtrl"
+                    [matAutocomplete]="auto" [matChipInputFor]="chipList"
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="add($event)">
+                </mat-chip-list>
+                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                  <mat-option *ngFor="let category of filteredCategories | async" [value]="category">
+                    {{category}}
+                  </mat-option>
+                </mat-autocomplete>
               </mat-form-field>
-            </div>
-            <div class="col-6 col-md-6">
-              <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Author name</mat-label>
-                <input formControlName="author" matInput placeholder="Sercan Sever" value="Sercan Sever">
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12 col-md-12">
-              <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Summary</mat-label>
-                <textarea formControlName="summary" matInput
-                  placeholder="In recent years, we see that cats take the shape of the container they are in..."></textarea>
-              </mat-form-field>
-            </div>
-          </div>
+              <div class="d-flex justify-content-between">
+                <button matStepperPrevious mat-fab style="background-color: #dc3f34;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                    class="bi bi-chevron-double-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                    <path fill-rule="evenodd"
+                      d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                  </svg>
+                </button>
 
-          <div class="row">
-            <div class="col-12 col-md-12">
-              <ckeditor [config]="ckEditorConfig" [editor]="Editor" formControlName="content"></ckeditor>
+                <button (click)="addCategory()" matStepperNext mat-fab style="background-color: #3F51B5;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                    class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z" />
+                    <path fill-rule="evenodd"
+                      d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z" />
+                  </svg>
+                </button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step>
+            <ng-template matStepLabel>Done</ng-template>
+            <p>You are now done.</p>
+            <div>
+              <button mat-stroked-button class="m-2 m-md-2" (click)="stepper.reset()">Reset and write another.</button>
+              <button mat-stroked-button color="primary">Take a look at the article.</button>
             </div>
-          </div>
-        </form>
+          </mat-step>
+        </mat-stepper>
 
 
-
-        <div class="d-flex justify-content-center mt-2 mt-md-2">
-          <button (click)="addArticle()" mat-fab style="background-color: #479F76;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus-lg"
-              viewBox="0 0 16 16">
-              <path fill-rule="evenodd"
-                d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
-            </svg>
-          </button>
-        </div>
 
       </div>
     </div>

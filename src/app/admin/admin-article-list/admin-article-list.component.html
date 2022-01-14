@@ -1,4 +1,4 @@
-<div routerLink="/article/add" class="d-flex justify-content-center">
+<div class="d-flex justify-content-center">
   <button routerLink="/article/add" mat-fab style="background-color: #479F76;">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil"
       viewBox="0 0 16 16">
@@ -31,7 +31,7 @@
     <br>
     <h2 class="d-flex justify-content-center">Loading Articles</h2>
   </div>
-  <div *ngIf="articleService.articles.length === 0">
+  <div *ngIf="articleService.articles?.length === 0">
     <br>
     <h2 class="d-flex justify-content-center">You don't have any articles yet. Let's write one!
     </h2>
@@ -42,8 +42,8 @@
     currentPage: page,
     totalItems: count
   };">
-    <mat-card-title *ngIf="article.name.length > 12">{{article.name.substring(0,12)}}...</mat-card-title>
-    <mat-card-title *ngIf="!(article.name.length > 12)">{{article.name}}</mat-card-title>
+    <mat-card-title *ngIf="article.name?.length > 12">{{article.name.substring(0,12)}}...</mat-card-title>
+    <mat-card-title *ngIf="!(article.name?.length > 12)">{{article.name}}</mat-card-title>
     <mat-card-subtitle>Upload date: {{article.uploadDate | date : 'dd/MM/yyyy'}}</mat-card-subtitle>
     <hr>
     <div class="row">
