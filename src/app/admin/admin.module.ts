@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AdminFormComponent } from './admin-form/admin-form.component';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
@@ -53,7 +52,6 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
     LastAddedArticlesComponent,
     AdminComponent,
-    AdminFormComponent,
     AdminNavbarComponent,
     AdminArticleListComponent,
     AdminCategoryListComponent,

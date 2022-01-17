@@ -7,7 +7,6 @@ import { AdminCommentPageComponent } from './admin-comment-page/admin-comment-pa
 import { AdminComponent } from './admin.component';
 
 const routes: Routes = [
-  { path: '', component: AdminComponent },
   { path: "dashboard", component: AdminComponent },
   { path: "articles", component: AdminArticlePageComponent },
   { path: "article/add", component: AdminArticleFormComponent },

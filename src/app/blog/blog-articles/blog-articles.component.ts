@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import ArticleDto from 'src/app/models/article';
 import { ArticleService } from 'src/app/services/article.service';
+import CategoryDto from "../../models/category";
 
 @Component({
   selector: 'app-blog-articles',
@@ -9,12 +10,16 @@ import { ArticleService } from 'src/app/services/article.service';
   styleUrls: ['./blog-articles.component.css']
 })
 export class BlogArticlesComponent implements OnInit {
-  filterText: string = '';
+  filterText: string;
   articles: ArticleDto[] = [];
-  dataLoaded: boolean = false;
+  loadSpinner: boolean = false;
+  categories: CategoryDto[]
+  page = 1;
+  count = 0;
+  tableSize = 10;
   constructor(
     private activatedRoute: ActivatedRoute,
-    private articleService: ArticleService
+    public articleService: ArticleService
   ) { }
 
   ngOnInit(): void {
@@ -26,11 +31,28 @@ export class BlogArticlesComponent implements OnInit {
       }
     })
   }
+  onTableDataChange(event: any) {
+    this.page = event;
+    this.articleService.getArticles();
+  }
 
   getByCategory(categoryId: number) {
+    this.loadSpinner = true;
     this.articleService.getArticlesByCategory(categoryId).subscribe(response => {
       this.articles = response.data
-      this.dataLoaded = true;
+      this.loadSpinner = false;
     })
   }
+
+  search(filterText:string) {
+    this.filterText = this.filterText.toLowerCase();
+    this.articleService.filteredArticles = this.articleService.articles.filter((article: ArticleDto) => {
+      return article.name.toLowerCase().indexOf(this.filterText) > -1
+    })
+  }
+
+
+
+
+
 }
