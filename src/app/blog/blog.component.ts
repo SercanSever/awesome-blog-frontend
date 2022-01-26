@@ -18,19 +18,7 @@ export class BlogComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(params => {
-      if (params["categoryId"]) {
-        this.getByCategory(params["categoryId"])
-      } else {
-        this.articleService.getArticles()
-      }
-    })
-  }
-  getByCategory(categoryId: number) {
-    this.articleService.getArticlesByCategory(categoryId).subscribe(response => {
-      this.articles = response.data
-      this.dataLoaded = true;
-    })
+
   }
 
 }

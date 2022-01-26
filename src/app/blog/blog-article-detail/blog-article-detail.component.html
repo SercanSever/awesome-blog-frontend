@@ -1,0 +1,242 @@
+<div class="container-fluid">
+  <app-blog-navbar></app-blog-navbar>
+</div>
+
+<div class="container">
+  <mat-progress-bar *ngIf="loadSpinner" class="m-2 m-md-2" mode="indeterminate"></mat-progress-bar>
+  <div class="row">
+    <section class="col-md-3">
+      <div class="custom-position">
+        <app-blog-categories></app-blog-categories>
+        <app-blog-info></app-blog-info>
+      </div>
+    </section>
+
+
+    <!-- ARTİCLE HEADER-->
+    <section class="col-md-9">
+      <section>
+        <div class="card text-center mt-2 custom-position">
+          <div class="card-header bg-white d-flex justify-content-between">
+            <div class="mt-2">
+              <strong style="color:#384D78">.NET CORE / REST / ASP.NET / MVC </strong>
+            </div>
+            <div class="mt-2 numberOf-comments">
+              <a href="/text6#comments" class="text-decoration-none numberOf-comments">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-dots-fill" viewBox="0 0 16 16">
+                  <path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                </svg>
+                <strong class="text-custom mx-1">10</strong>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ARTİCLE HEADER-->
+
+      <!--ARTİCLE-->
+      <article class="mt-2 mt-md-2">
+        <div class="row my-3 mt-md-3 px-2">
+          <h1 class="title-size">.Net 6 Yenilikler ve Farklılıklar Net 6 Yenilikler ve Farklılıkla Net 6 Yenilikler ve Farklılıkla</h1>
+          <small class="text-muted">YAZAR: <a routerLink="/ana-sayfa" class="text-decoration-none" style="color:#384D78"><strong>SERCAN SEVER</strong></a> - 27 HAZİRAN 2022</small>
+        </div>
+        <img class="article-image" mat-card-image src="https://images.wallpaperscraft.com/image/single/code_text_colorful_140555_2048x1152.jpg" alt="Photo of a article">
+
+        <p class="my-4 my-md-4 article-text">
+          Selamlar, bu yazımda
+          Sed porttitor lectus nibh. Proin eget tortor risus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Donec rutrum congue leo eget malesuada.
+
+          Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Donec sollicitudin molestie malesuada. Nulla quis lorem ut libero malesuada feugiat. Vivamus suscipit tortor eget felis porttitor volutpat.
+
+          Nulla quis lorem ut libero malesuada feugiat. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
+
+          Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Donec rutrum congue leo eget malesuada.
+
+          Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Donec sollicitudin molestie malesuada. Donec sollicitudin molestie malesuada.
+        </p>
+        <hr>
+      </article>
+      <!-- ARTİCLE-->
+
+      <!-- HASHTAGS-->
+      <section class="row my-3">
+        <div class="col-md-12">
+          <small class="text-muted"><strong>Etiketler :</strong>
+            <a routerLink="/ana-sayfa" class="m-1 text-decoration-none">
+              <span class="badge bg-secondary">.Net</span>
+            </a>
+            <a routerLink="/ana-sayfa" class="m-1">
+              <span class="badge bg-secondary">Angular</span>
+            </a>
+            <a routerLink="/ana-sayfa" class="m-1">
+              <span class="badge bg-secondary">RestApi</span>
+            </a>
+          </small>
+        </div>
+      </section>
+      <!-- HASHTAGS-->
+
+
+      <!--SİMİLAR CATEGORİES AND ARTİCLES-->
+      <section class="row">
+        <div class="col-md-12">
+          <h4><strong>BENZER KATEGORİLERDEKİ DİĞER MAKALELER</strong></h4>
+        </div>
+      </section>
+      <section class="row similar-articles ">
+        <div class="col-md-4">
+          <a routerLink="/ana-sayfa" class="article-image text-decoration-none">
+            <img class="article-image" mat-card-image src="https://images.wallpaperscraft.com/image/single/code_text_colorful_140555_2048x1152.jpg" alt="Photo of a article">
+          </a>
+          <a routerLink="/ana-sayfa" class="text-decoration-none" style="opacity:85%; color:#2D3A4A" >
+            <p class="mt-2 article-name"><strong>.Net 6 Yenilikler ve Farklılıklar Net 6 Yenilikler ve Farklılıkla Net 6 Yenilikler ve Farklılıkla</strong></p>
+          </a>
+          <small class="mt-3 text-muted">27 HAZİRAN 2022</small>
+        </div>
+        <div class="col-md-4">
+          <a routerLink="/ana-sayfa" class="article-image text-decoration-none">
+            <img class="article-image" mat-card-image src="https://images.wallpaperscraft.com/image/single/code_text_colorful_140555_2048x1152.jpg" alt="Photo of a article">
+          </a>
+          <a routerLink="/ana-sayfa" class="text-decoration-none" style="opacity:85%; color:#2D3A4A" >
+            <p class="mt-2 article-name"><strong>.Net 6 Yenilikler ve Farklılıklar Net 6 Yenilikler ve Farklılıkla Net 6 Yenilikler ve Farklılıkla</strong></p>
+          </a>
+          <small class="mt-3 text-muted">27 HAZİRAN 2022</small>
+        </div> <div class="col-md-4">
+        <a routerLink="/ana-sayfa" class="article-image text-decoration-none">
+          <img class="article-image" mat-card-image src="https://images.wallpaperscraft.com/image/single/code_text_colorful_140555_2048x1152.jpg" alt="Photo of a article">
+        </a>
+        <a routerLink="/ana-sayfa" class="text-decoration-none" style="opacity:85%; color:#2D3A4A" >
+          <p class="mt-2 article-name"><strong>.Net 6 Yenilikler ve Farklılıklar Net 6 Yenilikler ve Farklılıkla Net 6 Yenilikler ve Farklılıkla</strong></p>
+        </a>
+        <small class="mt-3 text-muted">27 HAZİRAN 2022</small>
+      </div>
+        <!--SİMİLAR CATEGORİES AND ARTİCLES-->
+
+      </section>
+      <hr>
+      <section class="row mt-5 mt-md-5">
+        <div class="col-md-12">
+          <h4><strong style="color:#384D78;">YORUMLAR</strong></h4>
+          <hr>
+        </div>
+      </section>
+
+      <!--COMMENTS-->
+     <section>
+       <div class="row my-1">
+         <div class="col-md-1 ps-4">
+           <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-square" viewBox="0 0 16 16">
+             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+             <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12z"/>
+           </svg>
+         </div>
+         <div class="col-md-11 mt-1">
+           <small><strong>Sercan Sever</strong></small>
+           <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-clock ms-2" viewBox="0 0 16 16">
+             <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+             <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+           </svg>
+           <small class="text-muted comment-date mx-1">21 HAZİRAN 2022</small>
+           <div class="mt-1">
+             <p style="color:#46494D;">Lorem ipsum dolor sit amet, consectet</p>
+           </div>
+         </div>
+       </div>
+
+       <div class="row my-1">
+         <div class="col-md-1 ps-4">
+           <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-square" viewBox="0 0 16 16">
+             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+             <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12z"/>
+           </svg>
+         </div>
+         <div class="col-md-11 mt-1">
+           <small><strong>Sercan Sever</strong></small>
+           <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-clock ms-2" viewBox="0 0 16 16">
+             <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+             <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+           </svg>
+           <small class="text-muted comment-date mx-1">21 HAZİRAN 2022</small>
+           <div class="mt-1">
+             <p style="color:#46494D;">Lorem ipsum dolor sit amet, consectet</p>
+           </div>
+         </div>
+       </div>
+
+       <div class="row my-1">
+         <div class="col-md-1 ps-4">
+           <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-square" viewBox="0 0 16 16">
+             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+             <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12z"/>
+           </svg>
+         </div>
+         <div class="col-md-11 mt-1">
+           <small><strong>Sercan Sever</strong></small>
+           <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-clock ms-2" viewBox="0 0 16 16">
+             <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+             <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+           </svg>
+           <small class="text-muted comment-date mx-1">21 HAZİRAN 2022</small>
+           <div class="mt-1">
+             <p style="color:#46494D;">Lorem ipsum dolor sit amet, consectet</p>
+           </div>
+         </div>
+       </div>
+
+
+
+
+     </section>
+      <!--COMMENTS-->
+
+
+      <!--ADD COMMENTS-->
+      <section class="row mt-5 mt-md-5">
+        <div class="col-md-12">
+          <h4><strong style="color:#384D78;">BİR YORUM YAZIN</strong></h4>
+          <hr>
+        </div>
+      </section>
+
+      <section id="comments" class="row">
+        <div class="col-md-12">
+          <div class="card border-dark mb-3 py-2">
+            <div class="card-body text-dark">
+              <h4 class="card-title"><strong>Yorum</strong></h4>
+
+              <form>
+                <mat-form-field class="full-width" appearance="fill">
+                  <mat-label>Yorum yaz...</mat-label>
+                  <textarea matInput></textarea>
+                </mat-form-field>
+                <div class="row">
+                  <div class="col-md-6">
+                    <mat-form-field class="full-width" appearance="fill">
+                      <mat-label>İsim</mat-label>
+                      <input matInput value="">
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-6">
+                    <mat-form-field class="full-width" appearance="fill">
+                      <mat-label>E-posta</mat-label>
+                      <input matInput value="">
+                    </mat-form-field>
+                  </div>
+                </div>
+              </form>
+
+              <div class="d-flex justify-content-center">
+                <button mat-raised-button class="comment-btn">Yorum Gönder</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--ADD COMMENTS-->
+
+    </section>
+  </div>
+</div>
+
+<app-blog-footer></app-blog-footer>
+

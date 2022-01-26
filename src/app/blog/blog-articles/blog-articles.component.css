@@ -1,6 +1,4 @@
 
-
-
 .example-card {
   max-width: 400px;
 }
@@ -14,9 +12,15 @@
 .copyright{
   color:black;
 }
-.article :hover{
-  opacity:92%
+article.article :hover .article-image{
+  opacity:0.7;
 }
-.article :hover .article-name{
+article.article :hover .article-name{
   color:#384D78;
+}
+
+.custom-position{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 50px;
 }

@@ -29,6 +29,12 @@ export class ArticleService {
   getArticlesByCategory(categoryId: number): Observable<ListResponseModel<ArticleDto>> {
     return this.httpClient.get<ListResponseModel<ArticleDto>>(`${this.apiUrl}/articles/getbycategory?categoryId=${categoryId}`);
   }
+  getArticlesByCategoryName(categoryName: string): Observable<ListResponseModel<ArticleDto>> {
+    return this.httpClient.get<ListResponseModel<ArticleDto>>(`${this.apiUrl}/articles/getbycategoryname?categoryName=${categoryName}`);
+  }
+  getArticlesByUrl(nameUrl: string): Observable<SingleResponseModel<ArticleDto>> {
+    return this.httpClient.get<SingleResponseModel<ArticleDto>>(`${this.apiUrl}/articles/getbyurl?nameUrl=${nameUrl}`);
+  }
   add(article: ArticleDto): Observable<SingleResponseModel<ArticleDto>> {
     return this.httpClient.post<SingleResponseModel<ArticleDto>>(`${this.apiUrl}/articles/add`, article);
   }

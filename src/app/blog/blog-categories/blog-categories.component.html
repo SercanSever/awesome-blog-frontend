@@ -1,4 +1,4 @@
-<div class="card text-center mt-2">
+<div class="card text-center mt-2 custom-position">
   <div class="card-header" style="background-color:#F8791F; opacity: 85%">
     <div class="d-flex justify-content-sm-start mt-2">
       <strong>KATEGORİLER </strong>
@@ -7,27 +7,17 @@
   <div class="card-body">
     <div class="row d-flex justify-content-center">
 
-      <button mat-button (click)="filterArticleByCategory(0)" class="all-categories mb-3 mb-md-3"><strong>- Tüm Kategoriler</strong></button>
+      <button mat-button routerLink="/ana-sayfa"  class="all-categories mb-3 mb-md-3"><strong>- Tüm Kategoriler</strong></button>
 
-
-      <mat-form-field class="search-form-field" appearance="fill">
-        <mat-label>Kategori ara</mat-label>
-        <input  matInput type="text" (keyup)="search(filterText)" [(ngModel)]="filterText">
-        <button *ngIf="filterText" matSuffix mat-icon-button aria-label="Clear" (click)="search(filterText='')">
-          <mat-icon>close</mat-icon>
-        </button>
+      <mat-form-field class="example-form-field" appearance="fill">
+        <mat-label>Kategoriye göre filtrele</mat-label>
+        <mat-select>
+          <mat-option routerLink="/category/{{category.name}}" *ngFor="let category of categoryService.categories "
+                      [value]="category.categoryId">
+            {{category.name}}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
-      <div class="mt-2">
-
-        <mat-chip-list>
-          <mat-chip class="clickable" *ngFor="let category of categoryService.filteredCategories"
-                    (click)="filterArticleByCategory(category.categoryId)"
-                    [value]="category.categoryId">
-            <small>#{{category.name}}</small>
-          </mat-chip>
-        </mat-chip-list>
-
-      </div>
     </div>
   </div>
 </div>

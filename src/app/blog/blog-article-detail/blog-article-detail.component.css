@@ -1,0 +1,51 @@
+.card-header{
+  height:50px;
+}
+.comment-btn :hover{
+  color:#384D78;
+}
+.article-image{
+  width: 100%;
+}
+.title-size{
+  font-size: 35px;
+  line-height: 1.6;
+  color:#303437;
+}
+.article-text{
+  color:#666666;
+  font-size:16px;
+  line-height:1.6;
+}
+.custom-position{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 50px;
+}
+section.similar-articles :hover .article-image{
+  opacity:0.7;
+}
+section.similar-articles :hover .article-name{
+  color:#384D78;
+}
+.article-name{
+  text-size:16px;
+  line-height:1.6;
+  color:#6C757D;
+}
+.full-width {
+  width: 100%;
+}
+.comment-btn{
+  background-color: #384D78;
+  color:white;
+}
+a.numberOf-comments{
+  color:#6C757D;
+}
+div.numberOf-comments :hover{
+  color:#384D78;
+}
+.comment-date{
+  font-size:10px;
+}

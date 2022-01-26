@@ -17,6 +17,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
 import { NgxPaginationModule } from 'ngx-pagination';
+import {MatSelectModule} from '@angular/material/select';
+import { BlogArticleDetailComponent } from './blog-article-detail/blog-article-detail.component';
+import { BlogFooterComponent } from './blog-footer/blog-footer.component';
 
 
 
@@ -30,6 +33,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     BlogInfoComponent,
     BlogArticlesComponent,
     BlogNavbarComponent,
+    BlogArticleDetailComponent,
+    BlogFooterComponent,
   ],
   imports: [
     CommonModule,
@@ -43,7 +48,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     MatInputModule,
     MatCardModule,
     MatChipsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatSelectModule
   ]
 })
 export class BlogModule { }

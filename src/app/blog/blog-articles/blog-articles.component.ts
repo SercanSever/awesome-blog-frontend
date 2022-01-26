@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import ArticleDto from 'src/app/models/article';
 import { ArticleService } from 'src/app/services/article.service';
@@ -17,6 +17,7 @@ export class BlogArticlesComponent implements OnInit {
   page = 1;
   count = 0;
   tableSize = 10;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     public articleService: ArticleService
@@ -24,8 +25,8 @@ export class BlogArticlesComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-      if (params["categoryId"]) {
-        this.getByCategory(params["categoryId"])
+      if (params["name"]) {
+        this.getByCategory(params["name"])
       } else {
         this.articleService.getArticles()
       }
@@ -36,10 +37,10 @@ export class BlogArticlesComponent implements OnInit {
     this.articleService.getArticles();
   }
 
-  getByCategory(categoryId: number) {
+  getByCategory(name: string) {
     this.loadSpinner = true;
-    this.articleService.getArticlesByCategory(categoryId).subscribe(response => {
-      this.articles = response.data
+    this.articleService.getArticlesByCategoryName(name).subscribe(response => {
+      this.articleService.filteredArticles = response.data
       this.loadSpinner = false;
     })
   }
@@ -50,6 +51,7 @@ export class BlogArticlesComponent implements OnInit {
       return article.name.toLowerCase().indexOf(this.filterText) > -1
     })
   }
+
 
 
 
