@@ -1,6 +1,7 @@
 export default interface ArticleDto {
   articleId: number,
   name: string,
+  categoryNames:string[],
   nameUrl?: string,
   summary: string,
   content: string,

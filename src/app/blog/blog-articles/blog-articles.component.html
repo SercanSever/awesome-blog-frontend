@@ -29,21 +29,20 @@
         </div>
       </div>
       <article class="row article">
-        <div  class="col-md-6" *ngFor="let article of articleService.filteredArticles | paginate : {
+        <div  class="col-md-6"  *ngFor="let article of articleService.filteredArticles | paginate : {
     itemsPerPage: tableSize,
     currentPage: page,
     totalItems: count
   };">
           <div class="">
-            <a routerLink="/{{article.nameUrl}}">
+            <a routerLink="/blog/{{article.nameUrl}}">
               <img class="article-image" mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a article">
             </a>
             <div>
               <div class="mt-1 mb-2">
-                <a routerLink="" class="text-decoration-none" style="color:#384D78;"><strong>.Net Core</strong></a> /
-                <a routerLink="" class="text-decoration-none" style="color:#384D78;"><strong>.Net Core</strong></a> /
-                <a routerLink="" class="text-decoration-none" style="color:#384D78;"><strong>.Net Core</strong></a> /
-                <a routerLink="" class="text-decoration-none" style="color:#384D78;"><strong>.Net Core</strong></a> /
+                <small *ngFor="let articleCategory of article.categoryNames">
+                  <a routerLink="/category/{{articleCategory}}" class="text-decoration-none"  style="color:#384D78;"><strong>{{articleCategory}}</strong></a> /
+                </small>
               </div>
 
                 <div class="blockquote-footer">
@@ -51,7 +50,7 @@
                 </div>
 
                 <blockquote  class="blockquote">
-                  <a routerLink="/{{article.nameUrl}}" class="text-decoration-none" style="opacity:85%; color:#2D3A4A"><strong class="article-name">{{article.name}}</strong></a>
+                  <a routerLink="/blog/{{article.nameUrl}}" class="text-decoration-none" style="opacity:85%; color:#2D3A4A"><strong class="article-name">{{article.name}}</strong></a>
                 </blockquote>
 
             </div>

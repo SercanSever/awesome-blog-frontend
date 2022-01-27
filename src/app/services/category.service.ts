@@ -28,7 +28,7 @@ export class CategoryService {
   getAllCategoryNames(): Observable<ListResponseModel<string>> {
     return this.httpClient.get<ListResponseModel<string>>(`${this.apiUrl}/categories/getAllNames`);
   }
-  getCategoriesByArticleId(articleId: number): Observable<ListResponseModel<CategoryDto>> {
+  getCategoriesByArticleId(articleId?: number){
     return this.httpClient.get<ListResponseModel<CategoryDto>>(`${this.apiUrl}/categories/getByArticleId?articleId=` + articleId);
   }
   addCategory(category: CategoryDto): Observable<ResponseModel> {

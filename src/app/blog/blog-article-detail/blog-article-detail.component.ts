@@ -12,16 +12,22 @@ export class BlogArticleDetailComponent implements OnInit {
 
   loadSpinner: boolean = false;
   article :ArticleDto;
-
+  refreshCount:number =0;
   constructor(
     private activatedRoute:ActivatedRoute,
     private articleService:ArticleService) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(params=>{
-      this.getArticleByUrl(params.toString())
-    })
+    // if (!localStorage.getItem('hello')) {
+    //   localStorage.setItem('hello', 'no reload')
+    //   location.reload()
+    // } else {
+    //   localStorage.removeItem('hello')
+    // }
 
+    this.activatedRoute.params.subscribe(params=>{
+      this.getArticleByUrl(params['nameUrl'])
+    })
   }
 
   getArticleByUrl(nameUrl: string){

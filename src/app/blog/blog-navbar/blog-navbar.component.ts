@@ -11,5 +11,4 @@ export class BlogNavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: "", component: BlogComponent },
   { path: "ana-sayfa", component: BlogComponent },
   { path: "category/:name", component: BlogComponent },
-  { path: ":nameUrl", component: BlogArticleDetailComponent }
+  { path: "blog/:nameUrl", component: BlogArticleDetailComponent }
 
 ];
 

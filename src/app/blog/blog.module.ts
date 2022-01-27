@@ -20,6 +20,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import {MatSelectModule} from '@angular/material/select';
 import { BlogArticleDetailComponent } from './blog-article-detail/blog-article-detail.component';
 import { BlogFooterComponent } from './blog-footer/blog-footer.component';
+import {BrowserModule} from "@angular/platform-browser";
 
 
 
