@@ -1,9 +1,9 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import ArticleDto from 'src/app/models/article';
 import { ArticleService } from 'src/app/services/article.service';
 import CategoryDto from "../../models/category";
-import {CategoryService} from "../../services/category.service";
+import { CategoryService } from "../../services/category.service";
 
 @Component({
   selector: 'app-blog-articles',
@@ -13,13 +13,13 @@ import {CategoryService} from "../../services/category.service";
 export class BlogArticlesComponent implements OnInit {
   filterText: string;
   articles: ArticleDto[] = [];
-  articleCategories:CategoryDto[] = [];
+  articleCategories: string[] = [];
   loadSpinner: boolean = false;
   categories: CategoryDto[]
-  articleId:number;
+  articleId: number;
   page = 1;
   count = 0;
-  tableSize = 10;
+  tableSize = 5;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -57,7 +57,7 @@ export class BlogArticlesComponent implements OnInit {
     this.articleService.getArticles();
   }
 
-  search(filterText:string) {
+  search(filterText: string) {
     this.filterText = this.filterText.toLowerCase();
     this.articleService.filteredArticles = this.articleService.articles.filter((article: ArticleDto) => {
       return article.name.toLowerCase().indexOf(this.filterText) > -1

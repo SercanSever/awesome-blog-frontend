@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import ArticleDto from 'src/app/models/article';
+import { ArticleService } from 'src/app/services/article.service';
 
 @Component({
   selector: 'app-blog-info',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogInfoComponent implements OnInit {
 
-  constructor() { }
+  articles: ArticleDto[] = [];
+  constructor(private articleService: ArticleService) { }
 
   ngOnInit(): void {
+    this.getLastArticles();
   }
 
+  getLastArticles() {
+    this.articleService.getLastArticles().subscribe(response => {
+      this.articles = response.data;
+    })
+  }
 }

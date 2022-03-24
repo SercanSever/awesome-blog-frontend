@@ -1,5 +1,9 @@
-.scrool-top :hover{
-  color:#384D78;
-  width:41px;
-  height:41px;
+.scrool-top :hover {
+  color: #384d78;
+  width: 41px;
+  height: 41px;
 }
+/* #footer {
+  position: absolute;
+  bottom: 0;
+} */

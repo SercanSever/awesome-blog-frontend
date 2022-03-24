@@ -29,28 +29,28 @@
         </div>
       </div>
       <article class="row article">
-        <div  class="col-md-6"  *ngFor="let article of articleService.filteredArticles | paginate : {
+        <div  class="col-md-12"  *ngFor="let article of articleService.filteredArticles | paginate : {
     itemsPerPage: tableSize,
     currentPage: page,
     totalItems: count
   };">
           <div class="">
             <a routerLink="/blog/{{article.nameUrl}}">
-              <img class="article-image" mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a article">
+              <img class="article-image w-100 h-100" mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a article">
             </a>
             <div>
-              <div class="mt-1 mb-2">
+              <div class="mt-2">
                 <small *ngFor="let articleCategory of article.categoryNames">
-                  <a routerLink="/category/{{articleCategory}}" class="text-decoration-none"  style="color:#384D78;"><strong>{{articleCategory}}</strong></a> /
+                  <a routerLink="/category/{{articleCategory}}" class="text-decoration-none"  style="color:#384D78;"><strong>{{articleCategory}}</strong></a> <strong> / </strong>
                 </small>
               </div>
 
-                <div class="blockquote-footer">
-                  <p class=""><strong>{{article.uploadDate | date : 'dd MMMM yyyy'}}</strong></p>
+                <div class="mb-2">
+                  <small class=""><strong>{{article.uploadDate | date}}</strong></small>
                 </div>
 
-                <blockquote  class="blockquote">
-                  <a routerLink="/blog/{{article.nameUrl}}" class="text-decoration-none" style="opacity:85%; color:#2D3A4A"><strong class="article-name">{{article.name}}</strong></a>
+                <blockquote class="blockquote">
+                  <a routerLink="/blog/{{article.nameUrl}}" class="text-decoration-none" style="opacity:85%; color:#2D3A4A; font-size: 25px;"><strong class="article-name">{{article.name}}</strong></a>
                 </blockquote>
 
             </div>
@@ -72,20 +72,19 @@
         <app-blog-info></app-blog-info>
       </div>
     </div>
-
-    <div *ngIf="articleService.articles" class="d-flex justify-content-center">
-      <div class="d-flex justify-content-center">
-        <strong>
-          <pagination-controls previousLabel="" nextLabel="" (pageChange)="onTableDataChange($event)">
-          </pagination-controls>
-        </strong>
-
-      </div>
+  </div>
+  <div *ngIf="articleService.articles" class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center">
+      <strong>
+        <pagination-controls previousLabel="" nextLabel="Sonraki" (pageChange)="onTableDataChange($event)">
+        </pagination-controls>
+      </strong>
     </div>
   </div>
 </div>
 
+  <app-blog-footer></app-blog-footer>
 
-<app-blog-footer></app-blog-footer>
+
 
 

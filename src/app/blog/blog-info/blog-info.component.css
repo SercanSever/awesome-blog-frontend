@@ -1,4 +1,8 @@
-.card-header{
-  height:50px;
+.card-header {
+  height: 50px;
 }
 
+.last-articles :hover {
+  color: #384d78;
+  text-decoration: underline;
+}

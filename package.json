@@ -22,6 +22,7 @@
     "@angular/router": "~13.1.0",
     "@ckeditor/ckeditor5-angular": "^2.0.2",
     "@ckeditor/ckeditor5-build-classic": "^31.1.0",
+    "@ckeditor/ckeditor5-upload": "^33.0.0",
     "@igniteui/material-icons-extended": "^2.10.0",
     "@kolkov/angular-editor": "^2.0.0",
     "angular-datatables": "^13.0.1",

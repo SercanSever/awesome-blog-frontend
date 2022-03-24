@@ -22,7 +22,7 @@
               <strong style="color:#384D78">.NET CORE / REST / ASP.NET / MVC </strong>
             </div>
             <div class="mt-2 numberOf-comments">
-              <a href="/text6#comments" class="text-decoration-none numberOf-comments">
+              <a href="blog/{{article.name}}#comments" class="text-decoration-none numberOf-comments">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-dots-fill" viewBox="0 0 16 16">
                   <path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
                 </svg>
@@ -37,23 +37,17 @@
       <!--ARTİCLE-->
       <article class="mt-2 mt-md-2">
         <div class="row my-3 mt-md-3 px-2">
-          <h1 class="title-size">.Net 6 Yenilikler ve Farklılıklar Net 6 Yenilikler ve Farklılıkla Net 6 Yenilikler ve Farklılıkla</h1>
-          <small class="text-muted">YAZAR: <a routerLink="/ana-sayfa" class="text-decoration-none" style="color:#384D78"><strong>SERCAN SEVER</strong></a> - 27 HAZİRAN 2022</small>
+          <h1 class="title-size">{{article.name}}</h1>
+          <small class="text-muted">YAZAR: <a routerLink="/ana-sayfa" class="text-decoration-none" style="color:#384D78"><strong>{{article.author}}</strong></a> - {{article.uploadDate | date}}</small>
         </div>
         <img class="article-image" mat-card-image src="https://images.wallpaperscraft.com/image/single/code_text_colorful_140555_2048x1152.jpg" alt="Photo of a article">
 
-        <p class="my-4 my-md-4 article-text">
-          Selamlar, bu yazımda
-          Sed porttitor lectus nibh. Proin eget tortor risus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Donec rutrum congue leo eget malesuada.
-
-          Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Donec sollicitudin molestie malesuada. Nulla quis lorem ut libero malesuada feugiat. Vivamus suscipit tortor eget felis porttitor volutpat.
-
-          Nulla quis lorem ut libero malesuada feugiat. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
-
-          Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Donec rutrum congue leo eget malesuada.
-
-          Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Donec sollicitudin molestie malesuada. Donec sollicitudin molestie malesuada.
-        </p>
+        
+        <div>
+          <p [innerHTML]="article.content" class="my-4 my-md-4 article-text">
+          </p>
+        </div>
+       
         <hr>
       </article>
       <!-- ARTİCLE-->

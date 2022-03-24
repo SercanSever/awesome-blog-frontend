@@ -11,8 +11,9 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { map, startWith } from 'rxjs/operators';
 import { CategoryService } from 'src/app/services/category.service';
 import { ArticleCategoryService } from 'src/app/services/articleCategory.service';
-import CategoryDto from 'src/app/models/category';
 import { ArticleCategory } from 'src/app/models/articleCategory';
+
+
 
 @Component({
   selector: 'app-admin-article-form',
@@ -88,23 +89,16 @@ export class AdminArticleFormComponent implements OnInit {
       this.toastrService.success("Successfully added.");
     });
   }
+
   addCategory() {
     this.articleCategoryService.add(this.articleId, this.categories).subscribe(response => {
       this.toastrService.success(response.message || 'Successfully added');
     });
   }
 
-
   public ckEditorConfig = {
     simpleUpload: {
       uploadUrl: `${this.apiUrl}/Images/UploadImage`
-      // // Enable the XMLHttpRequest.withCredentials property.
-      // withCredentials: true,
-      // // Headers sent along with the XMLHttpRequest to the upload server.
-      // headers: {
-      //   'X-CSRF-TOKEN': 'CSRF-Token',
-      //   Authorization: 'Bearer <JSON Web Token>'
-      // }
     }
   }
 
@@ -118,7 +112,7 @@ export class AdminArticleFormComponent implements OnInit {
   add(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
 
-    // Add our fruit
+    // Add our categories
     if (value) {
       this.categories.push(value);
     }

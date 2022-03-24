@@ -44,4 +44,7 @@ export class ArticleService {
   hardDeleteArticle(articleId: number): Observable<ResponseModel> {
     return this.httpClient.delete<ResponseModel>(`${this.apiUrl}/articles/hardDelete?articleId=` + articleId);
   }
+  getLastArticles(): Observable<ListResponseModel<ArticleDto>> {
+    return this.httpClient.get<ListResponseModel<ArticleDto>>(`${this.apiUrl}/articles/getlastarticles`);
+  }
 }
